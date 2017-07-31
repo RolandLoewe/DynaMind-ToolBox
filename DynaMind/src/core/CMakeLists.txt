@@ -22,6 +22,7 @@ ENDIF()
 
 IF(PYTHON_EMBEDDING)
     TARGET_LINK_LIBRARIES(dynamindcore ${PYTHON_LIBRARIES})
+    message( STATUS "DIR = ${PYTHON_LIBRARIES}" )
     #ADD_DEPENDENCIES(dynamindcore pydynamindgen pydmtoolboxgen)
 ENDIF()
 

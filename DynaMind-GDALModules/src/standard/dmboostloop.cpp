@@ -126,7 +126,7 @@ bool DMBoostLoop::removeStream(std::string name)
 bool DMBoostLoop::condition()
 {
     //check if view,attribute and statement are correctly set...
-    if (viewnames.empty() or attributenames.empty() or filternames.empty()){
+    if (viewnames.empty() || attributenames.empty() || filternames.empty()){
         DM::Logger(DM::Error) << "Missing variables";
         return false;
     }
@@ -155,9 +155,9 @@ bool DMBoostLoop::condition()
             DM::Logger(DM::Standard) << "Indicator: " << value;
             DM::Logger(DM::Standard) << "Column: " << c;
         // we can't use a string as an if statement, so we have the following;
-        if((unequal!=-1)and(zero!=-1))
+        if((unequal!=-1) && (zero!=-1))
         {if(value!=0){DM::Logger(DM::Error) << "Quit Loop"<<c<<"<>0";return false;}}
-        if((equal!=-1)and(zero!=-1))
+        if((equal!=-1) && (zero!=-1))
         {if(value==0){DM::Logger(DM::Error) << "Quit Loop"<<c<<"=0";return false;}}
       }
 
