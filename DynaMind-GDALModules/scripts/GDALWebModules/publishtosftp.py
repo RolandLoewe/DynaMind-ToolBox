@@ -84,7 +84,7 @@ class DM_Publish_SFTP(Module):
             self.connect()
             for e in expected:
                 folder_name = folder + "/" + e
-                print folder_name
+                print (folder_name)
                 files = self.sftp.listdir(folder_name)
                 if not os.path.exists(outputfolder + "/" + e):
                     os.makedirs(outputfolder + "/" + e)
@@ -133,7 +133,7 @@ class DM_Publish_SFTP(Module):
                 if self.scenario_id_as_prefix:
                     self.city.finalise()
 
-            except Exception, e:
+            except (Exception) as e:
                 log(str(e), Error)
                 self.close()
                 if self.scenario_id_as_prefix:

@@ -602,9 +602,9 @@ class DM::ViewContainer {
 		table_name = str(self.getName())
 		log("Register Layer " + str(table_name), Debug)
 
-		#print self.__ds[db_id]
-		#print self.__ds[db_id].GetLayerCount()
-		#print table_name
+		#print (self.__ds[db_id])
+		#print (self.__ds[db_id].GetLayerCount())
+		#print (table_name)
 
 		self.__ogr_layer = self.__ds[db_id].GetLayerByName(table_name)
 		self.__connection_counter[db_id]+=1
@@ -759,7 +759,7 @@ class DM::ViewContainer {
 			self.__ds[self.getDBID()] = None
 
 			# ds = None
-			# print self.__ds[self.getDBID()]
+			# print (self.__ds[self.getDBID()])
 			self.__ds.pop(self.getDBID())
 			self.__ds = {}
 			self.__ogr_layer = None
@@ -771,7 +771,7 @@ class DM::ViewContainer {
 
 %pythoncode %{
 def my_del(self):
-	#print "Force no delete of python garbage collector"
+	#print ("Force no delete of python garbage collector")
 	self.__disown__()
 
 Component.__del__ = my_del
@@ -842,7 +842,7 @@ class Sim:
 			Runs simulation
 			"""
 			if self.is_busy():
-				print "Can't run simulation. a simulation is currently running"
+				print ("Can't run simulation. a simulation is currently running")
 				return
 
 			self._sim_status = SIM_STATUS.RUNNING
@@ -870,7 +870,7 @@ class Sim:
 			:return: True if module was added to the simulation
 			"""
 			if self.is_busy():
-				print "Can't add module. A simulation is currently running"
+				print ("Can't add module. A simulation is currently running")
 				return
 			if parent:
 				m = self._sim.addModule(class_name, parent)
@@ -946,7 +946,7 @@ class Sim:
 				m_uuid = module_name
 			success = self.__add_module(class_name, m_uuid, parent_group)
 			if not success:
-				print "Adding module " + str(class_name) + " failed"
+				print ("Adding module " + str(class_name) + " failed")
 				return None
 
 			m = self.get_module_by_name(m_uuid)
@@ -1054,7 +1054,7 @@ class Sim:
 			:param module_name: module name
 			"""
 			if self.is_busy():
-				print "Can't remove module. A simulation is currently running"
+				print ("Can't remove module. A simulation is currently running")
 				return
 			modules = self._sim.getModules()
 			modules_map = {}
@@ -1063,7 +1063,7 @@ class Sim:
 			try:
 				module = modules_map[module_name]
 			except KeyError:
-				print "Module " + str(module_name) + " not found"
+				print ("Module " + str(module_name) + " not found")
 				return
 
 			self._sim.removeModule(module)
@@ -1088,7 +1088,7 @@ class Sim:
 			:param filename: Name of the .dyn file to load
 			"""
 			if self.is_busy():
-				print "Can't load simulation. A simulation is currently running"
+				print ("Can't load simulation. A simulation is currently running")
 				return
 
 			self._sim_status = SIM_STATUS.RUNNING
@@ -1183,7 +1183,7 @@ class Sim:
 			Removes all modules, groups and links from the simulation
 			"""
 			if self.is_busy():
-				print "Can't reset simulation. a simulation is currently running"
+				print ("Can't reset simulation. a simulation is currently running")
 				return
 			self._sim_status = SIM_STATUS.RUNNING
 			self._sim.clear()
@@ -1194,7 +1194,7 @@ class Sim:
 			Resets the data stream of the simulation.
 			"""
 			if self.is_busy():
-				print "Can't reset simulation. a simulation is currently running"
+				print ("Can't reset simulation. a simulation is currently running")
 				return
 			self._sim_status = SIM_STATUS.RUNNING
 			self._sim.reset()
@@ -1284,7 +1284,7 @@ class Sim:
 			os.remove(simulation_file)
 
 			self.set_modules_parameter(parameter_set)
-			print self.serialise()
+			print (self.serialise())
 			self.run()
 
 import struct

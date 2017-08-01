@@ -47,7 +47,7 @@ class LoadDAnCEStations(Module):
             try:
                 conn = psycopg2.connect("dbname=" + str(self.database) + " user='" + str(self.username) + "' host='" + str(self.host) + "' password='" + str(self.password) + "'")
             except:
-                print "I am unable to connect to the database"
+                print ("I am unable to connect to the database")
 
 
             source_osr = osr.SpatialReference()
@@ -68,7 +68,7 @@ class LoadDAnCEStations(Module):
                 station = self.node_station.create_feature()
 
                 station.SetField("dance_station_id", r[0])
-                print r
+                print (r)
                 pt = ogr.Geometry(ogr.wkbPoint)
                 pt.SetPoint_2D(0, r[4], r[5])
                 pt.Transform(transformation)

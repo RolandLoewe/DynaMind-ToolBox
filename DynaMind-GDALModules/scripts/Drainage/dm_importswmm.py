@@ -140,9 +140,9 @@ class DM_ImportSWMM(Module):
                     startReading = True
             f.close()
 
-        except Exception, e:
-            print e
-            print sys.exc_info()
+        except (Exception) as e:
+            print (e)
+            print (sys.exc_info())
 
     def init(self):
         self.conduits = ViewContainer("conduit", EDGE, WRITE)

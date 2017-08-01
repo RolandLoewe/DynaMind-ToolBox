@@ -110,6 +110,6 @@ if __name__ == "__main__":
     r = RWHTCostModel()
     r.init()
 
-    print r.pv_total_costs("melbourne", 2), r.pv_non_potable_saving(50), r.pv_outdoor_savings(31, 1, 4, 20, 40)
-    print r.pv_total_costs("melbourne", 5), r.pv_non_potable_saving(100), r.pv_outdoor_savings(31, 1, 4, 20, 10)
-    print r.pv_total_costs("melbourne", 10), r.pv_non_potable_saving(150), r.pv_outdoor_savings(31, 0, 4, 20, 20)
+    print (r.pv_total_costs("melbourne", 2), r.pv_non_potable_saving(50), r.pv_outdoor_savings(31, 1, 4, 20, 40))
+    print (r.pv_total_costs("melbourne", 5), r.pv_non_potable_saving(100), r.pv_outdoor_savings(31, 1, 4, 20, 10))
+    print (r.pv_total_costs("melbourne", 10), r.pv_non_potable_saving(150), r.pv_outdoor_savings(31, 0, 4, 20, 20))

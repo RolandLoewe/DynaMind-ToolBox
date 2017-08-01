@@ -77,7 +77,7 @@ class DM_Hoststart_SFTP(Module):
             ds = gdal.OpenEx(self.real_file_name, gdal.OF_VECTOR)
 
             if ds is None:
-                print "Open failed.\n"
+                print ("Open failed.\n")
                 return
 
             lyr = ds.GetLayerByName("dynamind_table_definitions")
