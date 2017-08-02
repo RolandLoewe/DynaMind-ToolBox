@@ -13,10 +13,10 @@ find_path(QGLVIEWER_INCLUDE_DIR
                 /usr/local/include
                 ENV QGLVIEWERROOT 
          )
-find_path(QGLVIEWER_DIR
-             NAMES QGLViewer
-                   ENV QGLVIEWERROOT
-         )
+#find_path(QGLVIEWER_DIR
+#             NAMES QGLViewer
+#                   ENV QGLVIEWERROOT
+#         )
 find_library(QGLVIEWER_LIBRARY_RELEASE 
              NAMES qglviewer-qt4 QGLViewer QGLViewer2
              PATHS /usr/lib
