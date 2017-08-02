@@ -17,7 +17,7 @@ ELSE()
         SET(SWIG_ARGS -w501,473,509,517,401)
 ENDIF()
 
-EXECUTE_PROCESS(COMMAND ${SWIG_EXECUTABLE} -python ${SWIG_ARGS} -c++ -threads -external-runtime swigruntime.h)
+EXECUTE_PROCESS(COMMAND ${SWIG_EXECUTABLE} -python -py3 ${SWIG_ARGS} -c++ -threads -external-runtime swigruntime.h)
 
 INCLUDE_DIRECTORIES(${CMAKE_BINARY_DIR})
 
