@@ -121,7 +121,7 @@ class DM_ImportSWMM(Module):
                     startReading = False
                     break
                 if startReading == True:
-                    # print line
+                    # print (line)
                     content = line.split()
                     if content[0] not in self.curves:
                         self.curves[content[0]] = []
@@ -180,7 +180,7 @@ class DM_ImportSWMM(Module):
         f = open(self.filename)
         currentContainer = ""
         for line in f:
-            # print line
+            # print (line)
             line = line.strip()
             if line is '':
                 continue
@@ -206,7 +206,7 @@ class DM_ImportSWMM(Module):
             ress[content[0]] = container
             results[currentContainer] = ress
         f.close()
-        # print "done reading"
+        # print ("done reading")
         # self.readCurves()
 
         # "Create Nodes"
@@ -256,7 +256,7 @@ class DM_ImportSWMM(Module):
         #     juntion.addAttribute("Z", (float(attributes[0])) + (float(attributes[1])))
         #     juntion.addAttribute("built_year", self.defaultBuiltYear)
         #     if (c == self.NameWWTP):
-        #         print "wwtp found"
+        #         print ("wwtp found")
         #         sewer.addComponentToView(juntion, self.wwtps)
         #
         # #Write Outfalls
@@ -268,7 +268,7 @@ class DM_ImportSWMM(Module):
         #     sewer.addComponentToView(outfall, self.outfalls)
         #     outfall.addAttribute("Z", float(vals[0]))
         #     if (o == self.NameWWTP):
-        #         print "wwtp found"
+        #         print ("wwtp found")
         #         sewer.addComponentToView(outfall, self.wwtps)
         #         outfall.addAttribute("WWTP", 1.0)
         # #Write Storage Units
@@ -311,8 +311,8 @@ class DM_ImportSWMM(Module):
 
             conduit = self.conduits.create_feature()
             line = ogr.Geometry(ogr.wkbLineString)
-            # print start_id
-            # print nodes[start_id][1], nodes[start_id][2]
+            # print (start_id)
+            # print (nodes[start_id][1], nodes[start_id][2])
             line.SetPoint_2D(0, nodes[vals[0]][1], nodes[vals[0]][2])
             line.SetPoint_2D(1, nodes[vals[1]][1], nodes[vals[1]][2])
 
@@ -343,8 +343,8 @@ class DM_ImportSWMM(Module):
 
                 weir = self.weirs.create_feature()
                 line = ogr.Geometry(ogr.wkbLineString)
-                # print start_id
-                # print nodes[start_id][1], nodes[start_id][2]
+                # print (start_id)
+                # print (nodes[start_id][1], nodes[start_id][2])
                 line.SetPoint_2D(0, nodes[vals[0]][1], nodes[vals[0]][2])
                 line.SetPoint_2D(1, nodes[vals[1]][1], nodes[vals[1]][2])
 
@@ -383,8 +383,8 @@ class DM_ImportSWMM(Module):
 
                 pump = self.pumps.create_feature()
                 line = ogr.Geometry(ogr.wkbLineString)
-                # print start_id
-                # print nodes[start_id][1], nodes[start_id][2]
+                # print (start_id)
+                # print (nodes[start_id][1], nodes[start_id][2])
                 line.SetPoint_2D(0, nodes[vals[0]][1], nodes[vals[0]][2])
                 line.SetPoint_2D(1, nodes[vals[1]][1], nodes[vals[1]][2])
 
@@ -411,9 +411,9 @@ class DM_ImportSWMM(Module):
         #         e.getAttribute("pump_x").setDoubleVector(pump_x)
         #         e.getAttribute("pump_y").setDoubleVector(pump_y)
         #
-        # except Exception, e:
-        #     print e
-        #     print sys.exc_info()
+        # except (Exception) as e:
+        #     print (e)
+        #     print (sys.exc_info())
 
         # self.nodes_container.finalise()
 
@@ -424,7 +424,7 @@ class DM_ImportSWMM(Module):
         #     xsection.addAttribute("type", str(attributes[0]))
         #     diameters = doublevector()
         #     diameters.push_back(float(attributes[1]))
-        #     #print self.curves
+        #     #print (self.curves)
         #     if str(attributes[0]) != "CUSTOM":
         #         diameters.push_back(float(attributes[2]))
         #         diameters.push_back(float(attributes[3]))
@@ -432,7 +432,7 @@ class DM_ImportSWMM(Module):
         #     else:
         #         shape_x = doublevector()
         #         shape_y = doublevector()
-        #         #print attributes
+        #         #print (attributes)
         #         cv = self.curves[attributes[2]]
         #
         #         #xsection.getAttribute("shape_type").setString(vd)

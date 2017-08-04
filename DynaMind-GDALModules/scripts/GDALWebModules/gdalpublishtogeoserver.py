@@ -128,7 +128,7 @@ class GDALPublishPostgisLayerInGeoserver(Module):
             ret = self.geoHelper.createPostGISDataStore(self.geoserverDataStoreName, self.postGisPassword,
                                               self.postGisUsername, self.postGisUrl, self.postGisDB,
                                               self.workspace)
-        except FailedRequestError as e:
+        except (FailedRequestError) as e:
             log(str(e),Warning)
 
         if ret == False:
@@ -152,7 +152,7 @@ class GDALPublishPostgisLayerInGeoserver(Module):
 
             self.geoHelper.publishPostGISLayer(name_on_server, self.geoserverDataStoreName, self.EPSG)
 
-        except FailedRequestError as e:
+        except (FailedRequestError) as e:
             log(str(e),Error)
             self.setStatus(MOD_EXECUTION_ERROR)
             return
